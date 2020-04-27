@@ -23,6 +23,11 @@ public class ReactiveappDemoApplication implements CommandLineRunner {
 
 	public void rxJava2(){
 		Observable.just(new Persona(2, "Marion", 27))
+				// con doOnNext tambien hago lo mismo, es como el metodo peak(), pero necesito el subscribe!
+				// necesito llaves si tengo mas de una linea!
+				.doOnNext(p -> {
+					logger.info("LOGGER_RXJAVA2: " + p);
+				})
 				.subscribe(p -> logger.info("LOGGER_RXJAVA2: " + p));
 	}
 

@@ -1,6 +1,9 @@
 package com.example.reactiveappdemo.model;
 
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class Persona {
 
     private Integer id;
@@ -41,6 +44,30 @@ public class Persona {
     public Persona setEdad(Integer edad) {
         this.edad = edad;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Persona persona = (Persona) o;
+
+        return new EqualsBuilder()
+                .append(id, persona.id)
+                .append(nombre, persona.nombre)
+                .append(edad, persona.edad)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .append(nombre)
+                .append(edad)
+                .toHashCode();
     }
 
     @Override

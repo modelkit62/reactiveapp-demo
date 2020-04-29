@@ -69,6 +69,4 @@ public class ReactiveappDemoApplication implements CommandLineRunner {
 		logger.info("method main");
 		SpringApplication.run(ReactiveappDemoApplication.class, args);
 	}
-
-
 }
